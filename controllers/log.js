@@ -3,7 +3,8 @@ module.exports = {
     getLog: async(req, res) => {
         try {
             const showNames = await BroadwayShows.find()
-            res.render("log.ejs", {shows: showNames})
+            const totalSeen = await BroadwayShows.countDocuments()
+            res.render("log.ejs", {shows: showNames, totalSeen: totalSeen})
         }
         catch(err) {
             console.error(err)
