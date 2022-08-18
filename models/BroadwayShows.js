@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const broadwaySchema = new mongoose.Schema({
-    name: {
+    showName: {
         type: String,
         required: true,
     },
@@ -9,7 +9,10 @@ const broadwaySchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-    location: String,
+    location: {
+        type: String,
+        default: 'New York',
+    },
     comments: String
 })
 

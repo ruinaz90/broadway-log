@@ -2,6 +2,21 @@
 
 <h1>Broadway Log</h1>
 
-<h2>List of shows</h2>
+<h2>Shows seen</h2>
+    <% for(let show of shows) { %>
+        <div>
+            <p><%= show.showName %></p>
+            <p><%= show.dateSeen.toDateString() %></p>
+            <p><%= show.location %></p>
+        </div>
+    <% } %>
+
+<h2>Add a show</h2>
+<form action="/log/add-show" method="POST">
+    <input type="text" placeholder="Enter name of show" name="show_name">
+    <input type="date" name="date">
+    <input type="text" placeholder="Location" name="location">
+    <input type="submit">
+</form>
 
 <%- include("partials/footer.ejs") %>
