@@ -2,7 +2,7 @@ const BroadwayShows = require("../models/BroadwayShows")
 module.exports = {
     getLog: async(req, res) => {
         try {
-            const showNames = await BroadwayShows.find()
+            const showNames = await BroadwayShows.find().sort({dateSeen: 1})
             const totalSeen = await BroadwayShows.countDocuments()
             res.render("log.ejs", {shows: showNames, totalSeen: totalSeen})
         }
