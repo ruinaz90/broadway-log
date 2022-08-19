@@ -1,23 +1,28 @@
 <%- include("partials/header.ejs") %> 
 
 <%- include("partials/nav.ejs") %> 
-<div class="main-container bg-gradient">
+<div class="main-container bg-gradient p-3 text-bg-dark">
 
-<section class="card text-center text-bg-dark">
-    <div class="card-header">Add a show</div>
+<section class="card text-bg-dark w-50 mb-3">
+    <div class="card-header text-center">Add a show</div>
     <div class="card-body">
         <form action="/log/add-show" method="POST">
-            <input type="text" placeholder="Enter name of show" name="show_name">
-            <input type="date" name="date">
-            <input type="text" placeholder="Location" name="location">
-            <input type="submit">
+            <label for="show_name" class="form-label">Show</label>
+            <input type="text" placeholder="Enter name of show" name="show_name" id="show_name" class="form-control">
+
+            <label for="date" class="form-label">Date</label>
+            <input type="date" name="date" id="date" class="form-control">
+
+            <label for="location" class="form-label">Location</label>
+            <input type="text" placeholder="New York" name="location" id="location" class="form-control">
+
+            <input type="submit" class="btn btn-info mt-3">
         </form>
     </div>
 </section>
 
-<h2>Shows seen</h2>
+<h3 class="display-5">Total shows: <%= totalSeen %> </h3>
 
-<h3>Total seen: <%= totalSeen %> </h3>
 <section class="row">
     <% for(let show of shows) { %>
         <div class="col-sm">
@@ -26,8 +31,8 @@
                     <h5 class="card-title"><%= show.showName %></h5>
                     <h6 class="card-subtitle mb-2 text-muted"><%= show.dateSeen.toString().slice(0, 15) %></h6>
                     <p class="card-text"><%= show.location %></p>
-                    <a href="#" class="del card-link">delete</a>
-                    <a href="log/<%= show._id %>" class="card-link">edit</a>
+                    <a href="#" class="del card-link text-info">delete</a>
+                    <a href="log/<%= show._id %>" class="card-link text-info">edit</a>
                 </div>
             </div>
         </div>
