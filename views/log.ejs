@@ -1,24 +1,38 @@
 <%- include("partials/header.ejs") %> 
 
-<h1>Broadway Log</h1>
+<%- include("partials/nav.ejs") %> 
+<div class="main-container bg-gradient">
+
+<section class="card text-center text-bg-dark">
+    <div class="card-header">Add a show</div>
+    <div class="card-body">
+        <form action="/log/add-show" method="POST">
+            <input type="text" placeholder="Enter name of show" name="show_name">
+            <input type="date" name="date">
+            <input type="text" placeholder="Location" name="location">
+            <input type="submit">
+        </form>
+    </div>
+</section>
 
 <h2>Shows seen</h2>
+
 <h3>Total seen: <%= totalSeen %> </h3>
+<section class="row">
     <% for(let show of shows) { %>
-        <div class="show" data-id="<%= show._id %>">
-            <p><%= show.showName %></p>
-            <p><%= show.dateSeen.toString().slice(0, 15) %></p>
-            <p><%= show.location %></p>
-            <a href="#" class="del">delete</a> | <a href="log/<%= show._id %>">edit</a>
+        <div class="col-sm">
+            <div class="card text-bg-dark">
+                <div class="card-body" data-id="<%= show._id %>">
+                    <h5 class="card-title"><%= show.showName %></h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><%= show.dateSeen.toString().slice(0, 15) %></h6>
+                    <p class="card-text"><%= show.location %></p>
+                    <a href="#" class="del card-link">delete</a>
+                    <a href="log/<%= show._id %>" class="card-link">edit</a>
+                </div>
+            </div>
         </div>
     <% } %>
+</section>
 
-<h2>Add a show</h2>
-<form action="/log/add-show" method="POST">
-    <input type="text" placeholder="Enter name of show" name="show_name">
-    <input type="date" name="date">
-    <input type="text" placeholder="Location" name="location">
-    <input type="submit">
-</form>
-
+</div>
 <%- include("partials/footer.ejs") %>
