@@ -1,0 +1,19 @@
+<%- include("partials/header") %>
+
+<h1>Edit</h1>
+    <div>
+        <p>
+            <% for(let show of shows) { %>
+                <% if(show._id == showId) {%>
+                    <form action="/log/<%= show._id %>" method="POST">
+                        <input type="text" value="<%= show.showName %>" name="show_name">
+                        <input type="date" name="date">
+                        <input type="text" value="<%= show.location %>" name="location">
+                        <input type="submit">
+                    </form>
+                <% } %>
+            <% } %>
+        </p>
+    </div>
+
+<%- include("partials/footer") %> 

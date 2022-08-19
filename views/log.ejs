@@ -7,10 +7,9 @@
     <% for(let show of shows) { %>
         <div class="show" data-id="<%= show._id %>">
             <p><%= show.showName %></p>
-            <!--<p><%= show.dateSeen.toUTCString() %></p>-->
             <p><%= show.dateSeen.toString().slice(0, 15) %></p>
             <p><%= show.location %></p>
-            <a href="#" class="del">delete</a>
+            <a href="#" class="del">delete</a> | <a href="log/<%= show._id %>">edit</a>
         </div>
     <% } %>
 

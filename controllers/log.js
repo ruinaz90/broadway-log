@@ -11,6 +11,17 @@ module.exports = {
         }
     },
 
+    getEdit: async(req, res) => {
+        try {
+            const id = req.params.id
+            const showNames = await BroadwayShows.find()
+            res.render("edit.ejs", {shows: showNames, showId: id})
+        }
+        catch(err) {
+            console.error(err)
+        }
+    },
+
     addShow: async(req, res) => {
         try {
             //defaults
@@ -26,6 +37,30 @@ module.exports = {
             })
             console.log(req.body)
             console.log("Show has been added")
+            res.redirect("/log")
+        }
+        catch(err) {
+            console.error(err)
+        }
+    },
+
+    updateShow: async(req, res) => {
+        try{
+            const id = req.params.id
+
+            //defaults
+            if(req.body.date === "")
+                req.body.date = Date.now()
+            if(req.body.location === "")
+                req.body.location = "New York"
+
+            await BroadwayShows.findByIdAndUpdate(id, {
+                showName: req.body.show_name,
+                dateSeen: req.body.date,
+                location: req.body.location
+            })
+            console.log(req.body)
+            console.log("Show has been updated")
             res.redirect("/log")
         }
         catch(err) {
