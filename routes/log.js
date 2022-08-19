@@ -4,5 +4,6 @@ const logController = require('../controllers/log')
 
 router.get('/', logController.getLog)
 router.post('/add-show', logController.addShow)
+router.delete('/delete-show', logController.deleteShow)
 
 module.exports = router

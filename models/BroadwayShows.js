@@ -7,13 +7,10 @@ const broadwaySchema = new mongoose.Schema({
     },
     dateSeen: {
         type: Date,
-        default: Date.now,
     },
     location: {
         type: String,
-        default: 'New York',
     },
-    comments: String
 })
 
 module.exports = mongoose.model('broadway-log', broadwaySchema)

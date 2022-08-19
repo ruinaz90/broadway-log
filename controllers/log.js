@@ -14,8 +14,10 @@ module.exports = {
     addShow: async(req, res) => {
         try {
             //defaults
-            if(req.body.date === "") req.body.date = Date.now()
-            if(req.body.location === "") req.body.location = "New York"
+            if(req.body.date === "")
+                req.body.date = Date.now()
+            if(req.body.location === "")
+                req.body.location = "New York"
 
             await BroadwayShows.create({
                 showName: req.body.show_name,
@@ -29,5 +31,17 @@ module.exports = {
         catch(err) {
             console.error(err)
         }
-    }
+    },
+
+    deleteShow: async(req, res) => {
+        console.log(req.body.showIdFromJSFile)
+        try{
+            await BroadwayShows.findOneAndDelete({_id:req.body.showIdFromJSFile})
+            console.log("Show has been deleted")
+            res.json("Deleted It")
+        }
+        catch(err) {
+            console.error(err)
+        }
+    },
 }
