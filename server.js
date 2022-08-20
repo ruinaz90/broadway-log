@@ -18,6 +18,6 @@ app.use(express.json())
 app.use('/', homeRoutes)
 app.use('/log', logRoutes)
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`)
 })
