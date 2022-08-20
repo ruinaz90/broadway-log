@@ -3,10 +3,13 @@
 }
 
 .main-container {
-    height: 100vh   ;
+    height: 100%;
+    background-color: #414548;
+    color: #fff;
 }
 
 .hero {
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
