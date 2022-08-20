@@ -7,7 +7,6 @@ const homeRoutes = require('./routes/home')
 const logRoutes = require('./routes/log')
 
 require('dotenv').config({path: './config/.env'})
-dotenv.config()
 connectDB()
 
 app.set('view engine', 'ejs')
@@ -19,6 +18,6 @@ app.use(express.json())
 app.use('/', homeRoutes)
 app.use('/log', logRoutes)
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`)
 })
