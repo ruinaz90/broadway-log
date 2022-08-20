@@ -1,7 +1,7 @@
 # Broadway Log
 <div id="screenshot" align="center">
 <img src="Screenshot 2022-08-19 182416.png" width="500px">
-https://broadway-log.herokuapp.com/
+<br>https://broadway-log.herokuapp.com/
 </div>
 
 ## How It's Made
