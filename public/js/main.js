@@ -1,7 +1,7 @@
-const deleteBtn = Array.from(document.querySelectorAll(".del"))
+const deleteBtn = Array.from(document.querySelectorAll(".del")) //create array from elements with .del class, assign to deleteBtn variable
 
 for(let button of deleteBtn) {
-    button.addEventListener("click", deleteShow)
+    button.addEventListener("click", deleteShow) //add event listener to all delete buttons
 }
 
 async function deleteShow() {
